@@ -1,0 +1,44 @@
+<!--Heroes component is the parent of hero detail component-->
+<!--
+    Displays the hero name in uppercase gets the name and id from hero component ts and uses the hero.ts interface
+    
+    <h2> {{hero.name | uppercase}} Details </h2>
+    <div> <span> ID: </span> {{hero.id}} </div>
+
+-->
+
+<!-- Change the name of the hero
+
+<div>
+    <label>Name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+</div>
+
+-->
+<h2>My Heroes</h2>
+
+<!-- 
+     li is the host element
+     heroes holds the heroes list from the heroescomponent class
+     hero holds the current object
+     class.selected means when that hero on the list is selected it has special css made for it
+-->
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
+    </li>
+</ul>
+
+
+<!--
+    When a hero is selected use the hero detail html
+    [hero]="selectedHero" is an Angular property binding
+    Now when the user clicks a hero in the list, the selectedHero changes 
+    When the selectedHero changes, the property binding updates hero and the HeroDetailComponent 
+    displays the new hero
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+-->

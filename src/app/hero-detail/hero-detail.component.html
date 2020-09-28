@@ -1,0 +1,17 @@
+<!--
+    The ngIf is used so that the component should only display the selected hero 
+    if a hero has actually been selected but if a hero hasnt been selected it wont display
+-->
+<div *ngIf="hero">
+
+    <h2>{{hero.name | uppercase}} Details</h2>
+    <div><span>ID: </span>{{hero.id}}</div>
+    <div>
+      <label>Name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+      </label>
+    </div>
+
+    <button (click)="goBack()">go back</button>
+    
+</div>
